@@ -53,7 +53,7 @@
     </div>
 
 <!-- SCRIPT -->
-<script type="module">
+<script>
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -98,17 +98,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
     }
     
-    // Utterance
-    const utterancesScript = document.createElement('script');
-    utterancesScript.src = 'https://utteranc.es/client.js';
-    utterancesScript.async = true;
-    utterancesScript.crossOrigin = 'anonymous';
-    utterancesScript.setAttribute('repo', 'labaib/TBID_Sistemi_operativi');
-    utterancesScript.setAttribute('issue-term', 'title');
-    utterancesScript.setAttribute('theme', 'github-light');
-    utterancesScript.setAttribute('label', 'discussione');
-      
-    utteranceElement.innerHTML = '';
+    // Utterance    
+    utteranceElement.innerHTML = `
+    <script src="https://utteranc.es/client.js"
+            repo="labaib/TBID_Sistemi_operativi"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    `.replace(/<\/?script>/g, '');
     utteranceElement.style.minHeight = '200px';
     utteranceElement.style.border = '1px dashed #eee'; // Solo per debug
     utteranceElement.appendChild(utterancesScript);
