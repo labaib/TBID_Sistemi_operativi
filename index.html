@@ -44,7 +44,7 @@
         <div class="wrapper">
             <div id="content" class="row py-4 px-5 w-100 justify-content-center overflow-y-auto">
                 <div id="readme"></div>
-                <hr class="my-3">
+                <hr class="my-3 text-secondary">
                 <div id="utterances" class="w-100"></div>
             </div>
             
@@ -97,34 +97,31 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
     }
 
-    function loadUtterances() {
-        const existing = utteranceElement.querySelector('script')
-        if (existing) existing.remove()
-        
-        const script = document.createElement('script')
-        script.src = 'https://utteranc.es/client.js?v=' + Date.now()
-        script.async = true
-        script.setAttribute('repo', 'labaib/TBID_Sistemi_operativi')
-        script.setAttribute('issue-term', 'title')
-        script.setAttribute('theme', 'github-light')
-        script.setAttribute('crossorigin', 'anonymous')
-        
-        utteranceElement.appendChild(script)
-        
-        // Fallback dopo 5 secondi
-        setTimeout(() => {
-          if (!utteranceElement.querySelector('.utterances-frame')) {
-            utteranceElement.innerHTML = `
-              <a href="https://github.com/labaib/TBID_Sistemi_operativi/issues" 
-                 class="btn btn-outline-primary">
-                Commenta su GitHub Issues
-              </a>
-            `
-          }
-        }, 5000)
+    // Utterances
+    const existing = utteranceElement.querySelector('script')
+    if (existing) existing.remove()
+    
+    const script = document.createElement('script')
+    script.src = 'https://utteranc.es/client.js?v=' + Date.now()
+    script.async = true
+    script.setAttribute('repo', `${org}/${repo}`)
+    script.setAttribute('issue-term', 'title')
+    script.setAttribute('theme', 'github-light')
+    script.setAttribute('crossorigin', 'anonymous')
+    
+    utteranceElement.appendChild(script)
+    
+    // Fallback dopo 5 secondi
+    setTimeout(() => {
+      if (!utteranceElement.querySelector('.utterances-frame')) {
+        utteranceElement.innerHTML = `
+          <a href="https://github.com/${org}/${repo}/issues" 
+             class="btn btn-outline-primary">
+            Commenta su GitHub Issues
+          </a>
+        `
       }
-
-      loadUtterances()
+    }, 5000)
         
 })
 </script>
