@@ -100,17 +100,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     // Utterance    
     utteranceElement.innerHTML = `
-    <script src="https://utteranc.es/client.js"
-            repo="labaib/TBID_Sistemi_operativi"
-            issue-term="pathname"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
-    `.replace(/<\/?script>/g, '');
+        <script src="https://utteranc.es/client.js"
+                repo="labaib/TBID_Sistemi_operativi"
+                issue-term="pathname"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        <${'/'}script>
+    `;
     utteranceElement.style.minHeight = '200px';
-    utteranceElement.style.border = '1px dashed #eee'; // Solo per debug
-    utteranceElement.appendChild(utterancesScript);
 
         
 })
