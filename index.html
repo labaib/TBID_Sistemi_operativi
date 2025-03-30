@@ -99,16 +99,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     
     // Utterance    
-    utteranceElement.innerHTML = `
-        <script src="https://utteranc.es/client.js"
-                repo="labaib/TBID_Sistemi_operativi"
-                issue-term="pathname"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-        <${'/'}script>
-    `;
-    utteranceElement.style.minHeight = '200px';
+    setTimeout(() => {
+        const script = document.createElement('script');
+        script.src = 'https://utteranc.es/client.js';
+        script.async = true;
+        script.setAttribute('repo', 'labaib/TBID_Sistemi_operativi');
+        script.setAttribute('issue-term', 'pathname');
+        script.setAttribute('theme', 'github-light');
+        script.setAttribute('crossorigin', 'anonymous');
+        
+        utteranceElement.innerHTML = ''; // Pulisci prima
+        utteranceElement.appendChild(script);
+    }, 300);
 
         
 })
