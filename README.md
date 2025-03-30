@@ -1,4 +1,4 @@
-## Sistema operativo
+# Sistema operativo
 Una selezione delle distribuzioni di Linux effettuata sulla base di: semplicità d’installazione, amichevolezza dell’interfaccia, orientamento all’ambito educativo, adattabilità a realtà di piccola/media grandezza. Tutte le distribuzioni sono alternative a Windows e macOS
 
 
