@@ -70,6 +70,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         ];
     })();
 
+    document.title = `${repo} | ${org}'s Documentation`;
+
     githubBtn.href = `https://github.com/${encodeURIComponent(org)}/${encodeURIComponent(repo)}`;
     
     // Carica README.md
@@ -97,20 +99,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     
     // Utterance
-    setTimeout(() => {
-      const utterancesScript = document.createElement('script');
-      utterancesScript.src = 'https://utteranc.es/client.js';
-      utterancesScript.async = true;
-      utterancesScript.crossOrigin = 'anonymous';
-      utterancesScript.setAttribute('repo', `${org}/${repo}`);
-      utterancesScript.setAttribute('issue-term', 'pathname');
-      utterancesScript.setAttribute('theme', 'github-light');
-      utterancesScript.setAttribute('label', 'discussione');
+    const utterancesScript = document.createElement('script');
+    utterancesScript.src = 'https://utteranc.es/client.js';
+    utterancesScript.async = true;
+    utterancesScript.crossOrigin = 'anonymous';
+    utterancesScript.setAttribute('repo', `${org}/${repo}`);
+    utterancesScript.setAttribute('issue-term', 'pathname');
+    utterancesScript.setAttribute('theme', 'github-light');
+    utterancesScript.setAttribute('label', 'discussione');
       
-      // Pulisci il container prima di aggiungere
-      utteranceElement.innerHTML = '';
-      utteranceElement.appendChild(utterancesScript);
-    }, 1000); // Ritardo di 1 secondo
+    utteranceElement.innerHTML = '';
+    utteranceElement.appendChild(utterancesScript);
+
         
 })
 </script>
