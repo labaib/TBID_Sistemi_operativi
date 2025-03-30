@@ -97,21 +97,36 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
         `;
     }
-    
-    // Utterance    
-    setTimeout(() => {
-        const script = document.createElement('script');
-        script.src = 'https://utteranc.es/client.js';
-        script.async = true;
-        script.setAttribute('repo', 'labaib/TBID_Sistemi_operativi');
-        script.setAttribute('issue-term', 'pathname');
-        script.setAttribute('theme', 'github-light');
-        script.setAttribute('crossorigin', 'anonymous');
-        
-        utteranceElement.innerHTML = ''; // Pulisci prima
-        utteranceElement.appendChild(script);
-    }, 300);
 
+    function loadUtterances() {
+        const existing = utteranceElement.querySelector('script')
+        if (existing) existing.remove()
+        
+        const script = document.createElement('script')
+        script.src = 'https://utteranc.es/client.js?v=' + Date.now()
+        script.async = true
+        script.setAttribute('repo', 'labaib/TBID_Sistemi_operativi')
+        script.setAttribute('issue-term', 'title')
+        script.setAttribute('theme', 'github-light')
+        script.setAttribute('crossorigin', 'anonymous')
+        
+        utteranceElement.innerHTML = '<div class="utterances-placeholder">Loading comments...</div>'
+        utteranceElement.appendChild(script)
+        
+        // Fallback dopo 5 secondi
+        setTimeout(() => {
+          if (!utteranceElement.querySelector('.utterances-frame')) {
+            utteranceElement.innerHTML = `
+              <a href="https://github.com/labaib/TBID_Sistemi_operativi/issues" 
+                 class="btn btn-outline-primary">
+                Commenta su GitHub Issues
+              </a>
+            `
+          }
+        }, 5000)
+      }
+
+      loadUtterances()
         
 })
 </script>
