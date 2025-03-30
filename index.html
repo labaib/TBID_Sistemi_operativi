@@ -44,7 +44,7 @@
     <!-- BODY -->
     <div class="container">
         <div class="wrapper">
-            <div id="content justify-content-center overflow-y-auto" class="row py-4 px-5 w-100">
+            <div id="content" class="row py-4 px-5 w-100 justify-content-center overflow-y-auto">
                 <div id="readme"></div>
                 <div id="utterances"></div>
             </div>
@@ -97,15 +97,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     
     // Utterance
-    const utterancesScript = document.createElement('script');
-    utterancesScript.src = 'https://utteranc.es/client.js';
-    utterancesScript.async = true;
-    utterancesScript.crossOrigin = 'anonymous';
-    utterancesScript.setAttribute('repo', `${encodeURIComponent(org)}/${encodeURIComponent(repo)}`);
-    utterancesScript.setAttribute('issue-term', 'pathname'); // Usa SEMPRE pathname nel tuo caso
-    utterancesScript.setAttribute('theme', 'github-light');
-    utterancesScript.setAttribute('label', 'discussione');
-    utteranceElement.appendChild(utterancesScript)
+    setTimeout(() => {
+      const utterancesScript = document.createElement('script');
+      utterancesScript.src = 'https://utteranc.es/client.js';
+      utterancesScript.async = true;
+      utterancesScript.crossOrigin = 'anonymous';
+      utterancesScript.setAttribute('repo', `${org}/${repo}`);
+      utterancesScript.setAttribute('issue-term', 'title'); // Prova con 'title' se 'pathname' non funziona
+      utterancesScript.setAttribute('theme', 'github-light');
+      utterancesScript.setAttribute('label', 'discussione');
+      
+      // Pulisci il container prima di aggiungere
+      utteranceElement.innerHTML = '';
+      utteranceElement.appendChild(utterancesScript);
+    }, 1000); // Ritardo di 1 secondo
         
 })
 </script>
