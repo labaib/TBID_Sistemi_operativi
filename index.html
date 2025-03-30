@@ -103,12 +103,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     utterancesScript.src = 'https://utteranc.es/client.js';
     utterancesScript.async = true;
     utterancesScript.crossOrigin = 'anonymous';
-    utterancesScript.setAttribute('repo', `${org}/${repo}`);
+    utterancesScript.setAttribute('repo', 'labaib/TBID_Sistemi_operativi');
     utterancesScript.setAttribute('issue-term', 'title');
     utterancesScript.setAttribute('theme', 'github-light');
     utterancesScript.setAttribute('label', 'discussione');
       
     utteranceElement.innerHTML = '';
+    utteranceElement.style.minHeight = '200px';
+    utteranceElement.style.border = '1px dashed #eee'; // Solo per debug
     utteranceElement.appendChild(utterancesScript);
 
         
