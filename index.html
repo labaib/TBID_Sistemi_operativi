@@ -95,13 +95,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             </div>
         `;
     }
-
-    const text = await readme.text();
-    marked.setOptions({
-        sanitize: true,
-        breaks: true
-    });
-    readmeElement.innerHTML = marked.parse(text);
     
     // Utterance
     const utterancesScript = document.createElement('script');
