@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       utterancesScript.async = true;
       utterancesScript.crossOrigin = 'anonymous';
       utterancesScript.setAttribute('repo', `${org}/${repo}`);
-      utterancesScript.setAttribute('issue-term', 'title'); // Prova con 'title' se 'pathname' non funziona
+      utterancesScript.setAttribute('issue-term', 'pathname');
       utterancesScript.setAttribute('theme', 'github-light');
       utterancesScript.setAttribute('label', 'discussione');
       
