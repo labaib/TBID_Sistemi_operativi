@@ -42,9 +42,9 @@
     <!-- BODY -->
     <div class="container">
         <div class="wrapper">
-            <div id="content" class="row py-4 px-5 w-100 justify-content-center overflow-y-auto">
+            <div id="content" class="row py-4 px-5 w-100 justify-content-center">
                 <div id="readme"></div>
-                <hr class="my-3 text-secondary">
+                <hr class="my-3 border-2 border-secondary opacity-100">
                 <div id="utterances" class="w-100"></div>
             </div>
             
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const readmeElement = document.getElementById('readme');
     const utteranceElement = document.getElementById('utterances');
 
-    // 1. Estrai org/repo dall'URL in modo robusto
+    // 1. Estrai org/repo dall'URL
     const [org, repo] = (() => {
         const pathParts = window.location.pathname.split('/').filter(Boolean);
         return [
